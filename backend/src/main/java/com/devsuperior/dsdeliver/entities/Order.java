@@ -93,7 +93,15 @@ public class Order implements Serializable {
 	public void setStatus(OrdesStatus status) {
 		this.status = status;
 	}
-
+	
+	public Double getTotal() {
+		double sum = 0.00;
+		for (Product p : products) {
+			sum = sum + p.getPrice();
+		}
+		return sum;
+	}
+	
 	public Set<Product> getProducts() {
 		return products;
 	}
